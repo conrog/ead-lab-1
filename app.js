@@ -1,11 +1,9 @@
 async function getTracks() {
   let tableBody = document.getElementById("sample-tracks");
-  console.log(tableBody);
 
   let data = await fetch("tableData.json");
   let tracks = await data.json();
 
-  console.log(tracks);
   tracks.map((track, index) => {
     let tableRow = document.createElement("tr");
     let trackNumber = document.createElement("td");
@@ -34,4 +32,24 @@ async function getTracks() {
   });
 }
 
+function simulateSendingEmail() {
+  let modal = bootstrap.Modal.getInstance(
+    document.getElementById("email-modal")
+  );
+  var toastElement = document.getElementById("email-toast");
+  let toast = new bootstrap.Toast(toastElement);
+
+  modal.hide();
+
+  document.getElementById("email-address").value = "";
+  document.getElementById("email-subject").value = "";
+  document.getElementById("email-body").value = "";
+
+  toast.show();
+}
+
 getTracks();
+
+document
+  .getElementById("send-email-button")
+  .addEventListener("click", simulateSendingEmail);
