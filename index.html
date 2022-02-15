@@ -26,11 +26,14 @@
       href="http://anijs.github.io/lib/anicollection/anicollection.css"
     />
   </head>
-  <body>
+  <body data-bs-spy="scroll" data-bs-target="navbar-test" data-bs-offset="250">
     <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav
+      id="navbar-test"
+      class="navbar sticky-top navbar-expand-md navbar-light bg-light"
+    >
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"
+        <a class="navbar-brand" href="#home"
           ><img
             src="images/logo.jpg"
             width="60"
@@ -49,17 +52,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav">
-            <a class="nav-link" href="#">About</a>
-            <a class="nav-link" href="#">Our Services</a>
-            <a class="nav-link" href="#">Pricing</a>
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="#our-services">Our Services</a>
+            <a class="nav-link" href="#recording">Recording</a>
+            <a class="nav-link" href="#testimonials">Testimonials</a>
+            <a class="nav-link" href="#contact-us">Contact Us</a>
           </div>
         </div>
       </div>
     </nav>
     <!-- Carousel with Info -->
-    <div class="container px-0 mb-2">
-      <div class="mx-auto position-relative col-lg-10">
+    <div class="container mt-4 px-0 mb-2">
+      <div class="mx-auto position-relative col-lg-10 col-sm-12">
         <div
           class="position-absolute top-0 start-50 translate-middle-x text-center"
           style="
@@ -68,10 +71,11 @@
             text-shadow: 0 0 3px black, 0 0 5px black;
           "
         >
-          <h1 class="mt-5">Pine Copse Studios</h1>
+          <h1 id="home" class="mt-3">Pine Copse Studios</h1>
           <p>
-            Pine Copse Studio is a project studio located in Dundrum, South
-            County Dublin.
+            Pine Copse Studio is a professional recording studio located in
+            South Dublin, featuring the best of both analog and modern digital
+            tools.
           </p>
         </div>
         <div
@@ -120,7 +124,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 px-0 mx-auto mt-4">
-          <h1 class="text-center">Our Services</h1>
+          <h1 id="our-services" class="text-center">Our Services</h1>
           <div class="row text-center mt-2">
             <div
               class="col-md mb-2 d-flex align-items-stretch"
@@ -187,7 +191,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto px-0 mt-4">
-          <h1 class="text-center mb-2">Sample Video Recording</h1>
+          <h1 id="recording" class="text-center mb-2">
+            Sample Video Recording
+          </h1>
           <div
             class="ratio ratio-16x9"
             data-anijs="if: scroll, on:window, do:zoomIn animated, before: scrollReveal"
@@ -239,7 +245,7 @@
     </div>
     <!-- End Sample Recordings -->
     <!-- Customer Testimonials -->
-    <div class="container mt-4">
+    <div id="testimonials" class="container my-4">
       <h1 class="text-center">Customer Testimonials</h1>
       <div class="row">
         <div
@@ -304,11 +310,141 @@
         </div>
       </div>
     </div>
-    <!-- TODO 
-      - Add fake testimonials cards with circle images
-      - Add socials buttons and contact me which opens modal with email form
-      - Add links to nav bar to scroll through page (maybe make nav bar sticky ie scroll with page)
-    -->
+    <div class="pt-2 mt-4 pb-5 bg-light rounded-3">
+      <div class="container py-2 text-center">
+        <h1 id="contact-us" class="">Contact Us</h1>
+        <p class="fs-4">
+          You can reach us through any of the social links provided below or by
+          email!
+        </p>
+        <div class="col-sm-2 mx-auto">
+          <ul class="list-group list-group-horizontal justify-content-center">
+            <li class="list-group-item list-group-item-action flex-fill">
+              <a
+                href="https://www.instagram.com/pinecopsestudio/"
+                target="_blank"
+                class="link-dark"
+              >
+                <i class="fa-brands fa-instagram fa-3x"></i>
+              </a>
+            </li>
+            <li class="list-group-item list-group-item-action flex-fill">
+              <a
+                href="https://www.youtube.com/channel/UCuUFFVZF6KC2q2XFLXQ7ENQ/featured"
+                target="_blank"
+                class="link-dark"
+              >
+                <i class="fa-brands fa-youtube fa-3x"></i>
+              </a>
+            </li>
+            <li class="list-group-item list-group-item-action flex-fill">
+              <a
+                href="https://soundcloud.com/user-752832380"
+                target="_blank"
+                class="link-dark"
+              >
+                <i class="fa-brands fa-soundcloud fa-3x"></i>
+              </a>
+            </li>
+            <li class="list-group-item list-group-item-action flex-fill">
+              <a
+                href="#"
+                class="link-dark"
+                data-bs-toggle="modal"
+                data-bs-target="#email-modal"
+              >
+                <i class="fa-solid fa-envelope fa-3x"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div
+        id="email-toast"
+        class="toast hide bg-success text-light align-items-center"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">Email has sent sucessfully!</div>
+          <button
+            type="button"
+            class="btn-close me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <!-- E-mail Modal -->
+    <div
+      class="modal fade"
+      id="email-modal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Send Us An Email!
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Your Email Address:</label
+                >
+                <input type="email" class="form-control" id="email-address" />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Subject</label
+                >
+                <input type="text" class="form-control" id="email-subject" />
+              </div>
+              <div class="mb-3">
+                <label for="email-body" class="form-label">Email Body:</label>
+                <div class="input-group">
+                  <textarea
+                    id="email-body"
+                    class="form-control"
+                    rows="10"
+                  ></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="send-email-button"
+            >
+              Send Email
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="app.js"></script>
   <script src="https://anijs.github.io/lib/anijs/anijs-min.js"></script>
