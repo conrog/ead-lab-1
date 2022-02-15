@@ -205,9 +205,45 @@
       </div>
     </div>
     <!-- End Video  -->
-    <h2>Hello</h2>
+    <!-- Start Recordings -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto px-0 table-responsive mt-4">
+          <h1 class="text-center mb-2">Sample Audio Recording</h1>
+          <table
+            class="table table-sm table-striped table-bordered table-hover shadow text-center"
+            data-anijs="if: scroll, on:window, do:fadeInUp animated, before: scrollReveal"
+          >
+            <thead>
+              <tr>
+                <th class="align-middle">No.</th>
+                <th class="col-4">Name</th>
+                <th class="col-4">Artist</th>
+                <th class="col-4">Controls</th>
+              </tr>
+            </thead>
+            <tbody id="sample-tracks"></tbody>
+            <tfoot>
+              <tr class="text-center">
+                <td colspan="4">
+                  Music Provided by:
+                  <a href="https://www.bensound.com" target="_blank"
+                    >www.bensound.com</a
+                  >
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- TODO 
+      - Add fake testimonials cards with circle images
+      - Add socials buttons and contact me which opens modal with email form
+      - Add links to nav bar to scroll through page (maybe make nav bar sticky ie scroll with page)
+    -->
   </body>
-  <script src="index.js"></script>
+  <script src="app.js"></script>
   <script src="https://anijs.github.io/lib/anijs/anijs-min.js"></script>
   <script src="https://anijs.github.io/lib/anijs/helpers/scrollreveal/anijs-helper-scrollreveal-min.js"></script>
 </html>
