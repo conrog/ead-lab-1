@@ -1,10 +1,11 @@
+//Function for populating table with data
 async function getTracks() {
   let tableBody = document.getElementById("sample-tracks");
 
   let data = await fetch("tableData.json");
   let tracks = await data.json();
 
-  tracks.map((track, index) => {
+  tracks.forEach((track, index) => {
     let tableRow = document.createElement("tr");
     let trackNumber = document.createElement("td");
     let trackName = document.createElement("td");
@@ -32,6 +33,7 @@ async function getTracks() {
   });
 }
 
+//Function for displaying toast after send email button is pressed
 function simulateSendingEmail() {
   let modal = bootstrap.Modal.getInstance(
     document.getElementById("email-modal")
@@ -50,6 +52,7 @@ function simulateSendingEmail() {
 
 getTracks();
 
+//Button Listeners
 document
   .getElementById("send-email-button")
   .addEventListener("click", simulateSendingEmail);
